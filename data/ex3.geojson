@@ -14,7 +14,7 @@
         "time": null,
         "magvar": null,
         "geoidheight": null,
-        "name": "朝陽科技大學",
+        "name": "世界一水果專賣店",
         "cmt": null,
         "desc": null,
         "src": null,
@@ -37,8 +37,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.7151341,
-          24.0687029
+          120.296128,
+          22.616586
         ]
       }
     },
@@ -49,7 +49,7 @@
         "time": null,
         "magvar": null,
         "geoidheight": null,
-        "name": "中興大學",
+        "name": "Sapulo 糕餅小舖",
         "cmt": null,
         "desc": null,
         "src": null,
@@ -72,43 +72,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          120.675114,
-          24.12395
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "ele": null,
-        "time": null,
-        "magvar": null,
-        "geoidheight": null,
-        "name": "省議會公車站",
-        "cmt": null,
-        "desc": null,
-        "src": null,
-        "link1_href": null,
-        "link1_text": null,
-        "link1_type": null,
-        "link2_href": null,
-        "link2_text": null,
-        "link2_type": null,
-        "sym": null,
-        "type": null,
-        "fix": null,
-        "sat": null,
-        "hdop": null,
-        "vdop": null,
-        "pdop": null,
-        "ageofdgpsdata": null,
-        "dgpsid": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          120.696647,
-          24.055174
+          120.282616,
+          22.625667
         ]
       }
     }

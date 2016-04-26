@@ -1,52 +1,25 @@
 /* global $, L, document, JSONEditor */
 
-$(document).ready(init);
+// http://enable-cors.org/
+// https://stackoverflow.com/questions/11281895/jquery-ajax-and-getjson-requests-hitting-access-control-allow-origin-issues
+// https://github.com/jdorn/json-editor
+// https://github.com/leaflet-extras/leaflet-providers
+
+$(document).ready(init0);
+
+function init0() {
+    $.getJSON('config.json', init);
+}
 
 var G = {};
 
-function init() {
-    var data;
+function init(config) {
+    G.editor = new JSONEditor($('#config')[0], config);
     G.theMap = L.map('themap').setView([23.5, 120.5], 7);
     G.baseLayer = L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(G.theMap);
-    G.gjLayer = L.geoJson().addTo(G.theMap);
 
-    G.editor = new JSONEditor($('#config')[0], {
-        'theme': 'jqueryui',
-        'startval': {
-            'title': 'Taichung OSM mapping party 2016',
-            'sources': [
-                {
-                    'format': 'geojson',
-                    'url': 'http://v.im.cyut.edu.tw/~ckhung/m/14/osmand/favourites.geojson'
-                }
-            ]
-        },
-        'schema': {
-            'type': 'object',
-            'title': 'configuration',
-            'properties': {
-                'title': {
-                    'type': 'string'
-                },
-                'sources': {
-                    'type': 'array',
-                    'format': 'table',
-                    'items': {
-                        'type': 'object',
-                        'properties': {
-                            'format': {
-                                'type': 'string',
-                                'enum': ['geojson', 'csv', 'dokuwiki']
-                            },
-                            'url': {
-                                'type': 'string',
-                                'format': 'url'
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    G.editor.watch('root.sources',function() {
+	console.log('sources changed');
     });
 
     // $.getJSON('data/ex1.geojson', addGeojsonLayer);
@@ -54,11 +27,10 @@ function init() {
     src.forEach(function (s) {
         $.getJSON(s.url, addGeojsonLayer);
     });
-    // http://enable-cors.org/
-    // https://stackoverflow.com/questions/11281895/jquery-ajax-and-getjson-requests-hitting-access-control-allow-origin-issues
 }
 
 function addGeojsonLayer(data) {
+    G.gjLayer = L.geoJson().addTo(G.theMap);
     G.gjLayer.addData(data);
 }
 

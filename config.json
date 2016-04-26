@@ -1,0 +1,50 @@
+{
+  "theme": "jqueryui",
+  "startval": {
+    "title": "Taichung OSM mapping party 2016",
+    "sources": [
+      {
+        "format": "geojson",
+        "url": "https://raw.githubusercontent.com/ckhung/wikimap/master/data/ex1.geojson"
+      },
+      {
+        "format": "geojson",
+        "url": "https://raw.githubusercontent.com/ckhung/wikimap/master/data/ex2.geojson"
+      },
+      {
+        "format": "geojson",
+        "url": "https://raw.githubusercontent.com/ckhung/wikimap/master/data/ex3.geojson"
+      }
+    ]
+  },
+  "schema": {
+    "type": "object",
+    "title": "configuration",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "sources": {
+        "type": "array",
+        "format": "table",
+        "items": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "geojson",
+                "gpx",
+                "csv"
+              ]
+            },
+            "url": {
+              "type": "string",
+              "format": "url"
+            }
+          }
+        }
+      }
+    }
+  }
+}
